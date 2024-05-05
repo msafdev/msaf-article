@@ -22,6 +22,8 @@ export default function Chat() {
     isLoading,
   } = useChat();
 
+  console.log(isLoading);
+
   const { toast } = useToast();
 
   useEffect(() => {
@@ -39,29 +41,35 @@ export default function Chat() {
   }, [error]);
 
   return (
-    <div className="flex flex-col w-full max-w-xl py-24 mx-auto stretch px-4 gap-y-4">
-      {messages.map((message) => (
-        <div
-          key={message.id}
-          className="whitespace-pre-wrap flex flex-col gap-y-3 relative"
-        >
-          {message.role === "user" ? (
-            <p className="text-foreground mb-4 font-medium w-fit ml-auto text-right">
-              {message.content}
-            </p>
-          ) : (
-            <>
-              <SiGooglegemini className="w-8 h-8 text-[#4D88D4] p-1.5 rounded-full border shrink-0 bg-popover md:absolute md:-translate-x-full md:-left-4 md:top-1" />
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                className="flex flex-col w-full overflow-x-auto"
-              >
+    <div
+      className={`flex flex-col w-full max-w-xl py-24 mx-auto stretch px-4 gap-y-4`}
+    >
+      <ul className="flex flex-col gap-y-4">
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`whitespace-pre-wrap flex flex-col gap-y-3 relative ${
+              isLoading ? "[&>svg]:last:animate-spin [&>svg]:last:-left-12" : ""
+            }`}
+          >
+            {message.role === "user" ? (
+              <p className="text-foreground mb-4 font-medium w-fit ml-auto text-right">
                 {message.content}
-              </Markdown>
-            </>
-          )}
-        </div>
-      ))}
+              </p>
+            ) : (
+              <>
+                <SiGooglegemini className="w-8 h-8 text-[#4D88D4] p-1.5 rounded-full border shrink-0 bg-popover md:absolute md:-translate-x-full md:-left-4 md:top-1" />
+                <Markdown
+                  remarkPlugins={[remarkGfm]}
+                  className="flex flex-col w-full overflow-x-auto"
+                >
+                  {message.content}
+                </Markdown>
+              </>
+            )}
+          </div>
+        ))}
+      </ul>
 
       <form
         onSubmit={handleSubmit}
