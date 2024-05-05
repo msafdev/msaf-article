@@ -2,32 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  * {
+    @apply border-border scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground;
+  }
+
+  h1 {
+    @apply text-2xl md:text-3xl font-semibold mb-5 md:mb-6;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl font-medium mb-4 md:mb-5;
+  }
+
+  h3 {
+    @apply text-lg md:text-xl font-medium mb-4 md:mb-5;
+  }
+
+  h4 {
+    @apply text-base md:text-lg font-medium mb-3 md:mb-4;
+  }
+
+  a {
+    @apply text-accent-foreground;
+  }
+
+  p {
+    @apply text-sm md:text-base text-muted-foreground mb-3 md:mb-4;
+  }
+
+  ul {
+    @apply list-disc m-0 flex flex-col;
+  }
+
+  ol {
+    @apply list-decimal m-0 flex flex-col;
+  }
+
+  li {
+    @apply text-base text-muted-foreground h-fit mb-3 md:mb-4;
+  }
+
+  strong {
+    @apply font-medium text-foreground;
+  }
+
+  pre {
+    @apply bg-secondary text-secondary-foreground p-4 mb-3 md:mb-4;
+  }
+
+  code {
+    @apply bg-secondary text-secondary-foreground text-wrap text-sm;
+  }
+
+  table {
+    @apply border text-xs md:text-sm overflow-x-auto w-full text-left divide-x divide-y mb-3 md:mb-4 shrink-0;
+  }
+
+  th,
+  td {
+    @apply p-2 text-start overflow-auto;
+  }
+
+  th {
+    @apply bg-popover
+  }
+
+  tr {
+    @apply divide-x;
+  }
+
+  tbody > tr > td {
+    @apply bg-background;
+  }
+
+  tbody {
+    @apply divide-y
   }
 }
