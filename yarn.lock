@@ -2787,10 +2787,10 @@ zod-to-json-schema@3.22.5:
   resolved "https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.22.5.tgz"
   integrity sha512-+akaPo6a0zpVCCseDed504KBJUQpEW5QZw7RMneNmKw+fGaML1Z9tUNLnHHAC8x6dzVRO1eB2oEMyZRnuBZg7Q==
 
-zod@^3.23.6:
-  version "3.23.6"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.23.6.tgz"
-  integrity sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==
+zod@^3.25.51:
+  version "3.25.51"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.51.tgz#aa2cf648e54f6f060f139cf77b694819f63c9f3a"
+  integrity sha512-TQSnBldh+XSGL+opiSIq0575wvDPqu09AqWe1F7JhUMKY+M91/aGlK4MhpVNO7MgYfHcVCB1ffwAUTJzllKJqg==
 
 zwitch@^2.0.0:
   version "2.0.4"
